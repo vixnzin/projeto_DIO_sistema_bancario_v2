@@ -15,7 +15,7 @@ def menu():
     [6]\tNovo usuário
     [0]\tSair
 
-    Digite sua opção a baixo:
+    Digite sua opção abaixo:
     => """
     return menu2
 
@@ -66,6 +66,10 @@ def criar_usuario(usuarios):
     cpf = input("Informe o CPF (somente número): ")
     usuario = filtrar_usuario(cpf, usuarios)
     
+    if not cpf.isdigit() or len(cpf) != 11:
+        print("\n\t### CPF inválido! Deve conter apenas 11 números. ###")
+        return
+     
     if usuario:
         print("\n### Já existe usuário com esse CPF! ###")
         return
@@ -167,7 +171,6 @@ def main():
             print("### Operação inválida, por favor selecione novamente a operação desejada. ###")
 
 main()
-
 
 
     
