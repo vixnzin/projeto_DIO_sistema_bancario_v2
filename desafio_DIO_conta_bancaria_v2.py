@@ -1,4 +1,3 @@
-
 def menu():
     menu2 = """\n
     =======================MENU==============================
@@ -64,12 +63,13 @@ def exibir_extrato(saldo, /, *, extrato):
 
 def criar_usuario(usuarios):
     cpf = input("Informe o CPF (somente número): ")
-    usuario = filtrar_usuario(cpf, usuarios)
-    
+
     if not cpf.isdigit() or len(cpf) != 11:
         print("\n\t### CPF inválido! Deve conter apenas 11 números. ###")
         return
-     
+
+    usuario = filtrar_usuario(cpf, usuarios)  # <-- Só chama aqui após validar o CPF
+
     if usuario:
         print("\n### Já existe usuário com esse CPF! ###")
         return
@@ -171,6 +171,7 @@ def main():
             print("### Operação inválida, por favor selecione novamente a operação desejada. ###")
 
 main()
+
 
 
     
